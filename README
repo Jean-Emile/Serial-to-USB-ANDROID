@@ -18,10 +18,10 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 REQUIREMENTS
 --------------------------------------------------------------------------------------------
 ANDROID with  USB Host API
+--------------------------------------------------------------------------------------------
 
-
-
-Example : 
+END USE EXAMPLE
+----------------------------------------------------------------------------------------
 
 private IFtdi ftidusb=null;
 ftidusb = new Ftdi_Impl("0403:6001", <myactivity>);
