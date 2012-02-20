@@ -1,8 +1,5 @@
 package Serial_USB_Android;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * Created by jed
  * User: jedartois@gmail.com
