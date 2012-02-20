@@ -17,8 +17,10 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 
 REQUIREMENTS
 --------------------------------------------------------------------------------------------
-ANDROID USB Host API
+- ANDROID USB Host API (Android 3.1 or upper)
+- no need to root the device 
 --------------------------------------------------------------------------------------------
+
 
 END USE EXAMPLE
 ----------------------------------------------------------------------------------------
