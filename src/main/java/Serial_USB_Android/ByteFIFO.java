@@ -1,4 +1,4 @@
-package Ftdi_usb;
+package Serial_USB_Android;
 
 
 /**

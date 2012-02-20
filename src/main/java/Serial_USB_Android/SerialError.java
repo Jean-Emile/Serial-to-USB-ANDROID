@@ -1,22 +1,22 @@
-package Ftdi_usb;
+package Serial_USB_Android;
 /**
 * Created by jed
 * User: jedartois@gmail.com
 * Date: 11/02/12
 */
-public class Ftdi_Error  extends Error
+public class SerialError extends Error
 {
 	private Throwable cause = null;
-	  public Ftdi_Error() 
+	  public SerialError()
 	  {
 	    super();
 	  }
 
-	  public Ftdi_Error(String message) {
+	  public SerialError(String message) {
 	    super(message);
 	  }
 
-	  public Ftdi_Error(String message, Throwable cause) {
+	  public SerialError(String message, Throwable cause) {
 	      super(message);
 	      this.cause = cause;
 	  }
