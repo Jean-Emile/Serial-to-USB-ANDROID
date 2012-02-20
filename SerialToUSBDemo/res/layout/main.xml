@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <EditText
+            android:id="@+id/text"
+            android:layout_width="1079dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.75" >
+            <requestFocus />
+        </EditText>
+
+        <Button
+            android:id="@+id/btsend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/Incommingdata"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text=" " />
+
+</LinearLayout>
