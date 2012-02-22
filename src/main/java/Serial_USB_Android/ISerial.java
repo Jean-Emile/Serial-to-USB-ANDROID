@@ -5,8 +5,6 @@ package Serial_USB_Android;
 * Date: 11/02/12
 */
 public interface ISerial {
-
-
     public void open() throws SerialError;
     public void open(String usbDeviceID,int baudrate) throws SerialError;
     public void open(String _usbDeviceID) throws SerialError;
