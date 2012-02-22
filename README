@@ -17,51 +17,51 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 
 REQUIREMENTS
 --------------------------------------------------------------------------------------------
-ANDROID USB Host API
+- ANDROID USB Host API (Android 3.1 or upper)
+- no need to root the device 
 --------------------------------------------------------------------------------------------
+
 
 END USE EXAMPLE
 ----------------------------------------------------------------------------------------
 
-private IFtdi ftidusb=null;
-ftidusb = new Ftdi_Impl("0403:6001", <myactivity>);
-ftidusb.setbaudrate(115200);
+ISerial usb_serial=null;
 
 
-ftiusb.addEventListener(new Ftid_listener() 
-{
-			@Override
-			public void incomingDataEvent(Ftdi_Event evt) 
-			{
-      System.out.println("Event from Usb Serial"+new String(evt.read));
+usb_serial = new UsbSerial(UsbDeviceID.FT232RL,19200,mycontext);
+usb_serial.open();
 
-			}
+
+usb_serial.addEventListener(new SerialListener() {
+	@Override
+	public void incomingDataEvent(final SerialEvent evt) {
+	{
+    		 System.out.println("Event from Usb Serial"+new String(evt.read));
+
+	}
 });
 
 
-ftiusb.write("Hello World".getbytes());
+usb_serial.write("Hello World");
+usb_serial.close();
 
 
 ------------------------------------------------------------------------------------------------
 Serial-To-USB-Android Interface
 ------------------------------------------------------------------------------------------------
-
-
-public interface IFtdi {
-
-  	public abstract void open();
-	public abstract void close();
-	public abstract boolean setbaudrate(int bitrate);
-	public abstract boolean isConnected();
-
-	public abstract void write(byte[] data) throws Ftdi_Error;
-	public abstract void write(String data) throws Ftdi_Error;
-
-	public abstract byte[] read() throws Ftdi_Error;
-
-	public abstract void addEventListener (Ftid_listener listener);
-	public abstract void removeEventListener (Ftid_listener listener);
+public interface ISerial {
+    public void open() throws SerialError;
+    public void open(String usbDeviceID,int baudrate) throws SerialError;
+    public void open(String _usbDeviceID) throws SerialError;
+    public abstract void open(UsbDeviceID usbDeviceID) throws SerialError;
+    public abstract void close();
+    public abstract void setBaudrate(int bitrate) throws SerialError;
+    public abstract boolean isConnected();
+    public abstract void write(byte[] data) throws SerialError;
+    public abstract void write(String data) throws SerialError;
+    public abstract byte[] read() throws SerialError;
+    public abstract void addEventListener (SerialListener listener);
+    public abstract void removeEventListener (SerialListener listener);
 }
-
 
 
