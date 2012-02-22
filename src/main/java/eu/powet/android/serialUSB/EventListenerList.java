@@ -1,4 +1,4 @@
-package Serial_USB_Android;
+package eu.powet.android.serialUSB;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;

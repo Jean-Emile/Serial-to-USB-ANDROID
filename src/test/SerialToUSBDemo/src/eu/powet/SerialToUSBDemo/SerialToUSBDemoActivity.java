@@ -3,11 +3,10 @@ package eu.powet.SerialToUSBDemo;
 
 import java.util.LinkedList;
 
-import Serial_USB_Android.ISerial;
-import Serial_USB_Android.SerialEvent;
-import Serial_USB_Android.SerialListener;
-import Serial_USB_Android.UsbDeviceID;
-import Serial_USB_Android.UsbSerial;
+import eu.powet.android.serialUSB.ISerial;
+import eu.powet.android.serialUSB.SerialEvent;
+import eu.powet.android.serialUSB.SerialListener;
+import eu.powet.android.serialUSB.UsbDeviceID;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,6 +15,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import eu.powet.android.serialUSB.UsbSerial;
 
 public class SerialToUSBDemoActivity extends Activity {
 

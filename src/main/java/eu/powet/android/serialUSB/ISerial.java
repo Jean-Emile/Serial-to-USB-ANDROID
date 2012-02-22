@@ -1,4 +1,4 @@
-package Serial_USB_Android;
+package eu.powet.android.serialUSB;
 /**
 * Created by jed
 * User: jedartois@gmail.com

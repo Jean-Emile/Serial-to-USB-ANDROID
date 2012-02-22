@@ -2,46 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eb150807-0037-416c-be97-40b854b0f726" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_android_android_4_0_1_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_0_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_0_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_json_json_20080701.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_khronos_opengl_api_gl1_1_android_2_1_r1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_android_1_6_1_RC1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xerces_xmlParserAPIs_2_6_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xpp3_xpp3_1_1_4c.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/eu.powet.android.SerialUSB.iml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/SerialToUSBDemo/.classpath" afterPath="$PROJECT_DIR$/src/test/SerialToUSBDemo/.classpath" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/SerialToUSBDemo/.project" afterPath="$PROJECT_DIR$/src/test/SerialToUSBDemo/.project" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/SerialToUSBDemo/AndroidManifest.xml" afterPath="$PROJECT_DIR$/src/test/SerialToUSBDemo/AndroidManifest.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/SerialToUSBDemo/bin/SerialToUSBDemo.apk" afterPath="$PROJECT_DIR$/src/test/SerialToUSBDemo/bin/SerialToUSBDemo.apk" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/SerialToUSBDemo/bin/classes.dex" afterPath="$PROJECT_DIR$/src/test/SerialToUSBDemo/bin/classes.dex" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/SerialToUSBDemo/bin/classes/eu/powet/SerialToUSBDemo/R$attr.class" afterPath="$PROJECT_DIR$/src/test/SerialToUSBDemo/bin/classes/eu/powet/SerialToUSBDemo/R$attr.class" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/SerialToUSBDemo/bin/classes/eu/powet/SerialToUSBDemo/R$drawable.class" afterPath="$PROJECT_DIR$/src/test/SerialToUSBDemo/bin/classes/eu/powet/SerialToUSBDemo/R$drawable.class" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/SerialToUSBDemo/bin/classes/eu/powet/SerialToUSBDemo/R$id.class" afterPath="$PROJECT_DIR$/src/test/SerialToUSBDemo/bin/classes/eu/powet/SerialToUSBDemo/R$id.class" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/SerialToUSBDemo/bin/classes/eu/powet/SerialToUSBDemo/R$layout.class" afterPath="$PROJECT_DIR$/src/test/SerialToUSBDemo/bin/classes/eu/powet/SerialToUSBDemo/R$layout.class" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/SerialToUSBDemo/bin/classes/eu/powet/SerialToUSBDemo/R$string.class" afterPath="$PROJECT_DIR$/src/test/SerialToUSBDemo/bin/classes/eu/powet/SerialToUSBDemo/R$string.class" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/SerialToUSBDemo/bin/classes/eu/powet/SerialToUSBDemo/R.class" afterPath="$PROJECT_DIR$/src/test/SerialToUSBDemo/bin/classes/eu/powet/SerialToUSBDemo/R.class" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/SerialToUSBDemo/bin/classes/eu/powet/SerialToUSBDemo/SerialToUSBDemoActivity$1$1.class" afterPath="$PROJECT_DIR$/src/test/SerialToUSBDemo/bin/classes/eu/powet/SerialToUSBDemo/SerialToUSBDemoActivity$1$1.class" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/SerialToUSBDemo/bin/classes/eu/powet/SerialToUSBDemo/SerialToUSBDemoActivity$1.class" afterPath="$PROJECT_DIR$/src/test/SerialToUSBDemo/bin/classes/eu/powet/SerialToUSBDemo/SerialToUSBDemoActivity$1.class" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/SerialToUSBDemo/bin/classes/eu/powet/SerialToUSBDemo/SerialToUSBDemoActivity$2.class" afterPath="$PROJECT_DIR$/src/test/SerialToUSBDemo/bin/classes/eu/powet/SerialToUSBDemo/SerialToUSBDemoActivity$2.class" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/SerialToUSBDemo/bin/classes/eu/powet/SerialToUSBDemo/SerialToUSBDemoActivity.class" afterPath="$PROJECT_DIR$/src/test/SerialToUSBDemo/bin/classes/eu/powet/SerialToUSBDemo/SerialToUSBDemoActivity.class" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/SerialToUSBDemo/bin/res/drawable-hdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/src/test/SerialToUSBDemo/bin/res/drawable-hdpi/ic_launcher.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/SerialToUSBDemo/bin/res/drawable-ldpi/ic_launcher.png" afterPath="$PROJECT_DIR$/src/test/SerialToUSBDemo/bin/res/drawable-ldpi/ic_launcher.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/SerialToUSBDemo/bin/res/drawable-mdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/src/test/SerialToUSBDemo/bin/res/drawable-mdpi/ic_launcher.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/SerialToUSBDemo/bin/resources.ap_" afterPath="$PROJECT_DIR$/src/test/SerialToUSBDemo/bin/resources.ap_" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/SerialToUSBDemo/gen/eu/powet/SerialToUSBDemo/R.java" afterPath="$PROJECT_DIR$/src/test/SerialToUSBDemo/gen/eu/powet/SerialToUSBDemo/R.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/SerialToUSBDemo/proguard.cfg" afterPath="$PROJECT_DIR$/src/test/SerialToUSBDemo/proguard.cfg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/SerialToUSBDemo/project.properties" afterPath="$PROJECT_DIR$/src/test/SerialToUSBDemo/project.properties" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/SerialToUSBDemo/res/drawable-hdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/src/test/SerialToUSBDemo/res/drawable-hdpi/ic_launcher.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/SerialToUSBDemo/res/drawable-ldpi/ic_launcher.png" afterPath="$PROJECT_DIR$/src/test/SerialToUSBDemo/res/drawable-ldpi/ic_launcher.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/SerialToUSBDemo/res/drawable-mdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/src/test/SerialToUSBDemo/res/drawable-mdpi/ic_launcher.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/SerialToUSBDemo/res/layout/main.xml" afterPath="$PROJECT_DIR$/src/test/SerialToUSBDemo/res/layout/main.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/SerialToUSBDemo/res/values/strings.xml" afterPath="$PROJECT_DIR$/src/test/SerialToUSBDemo/res/values/strings.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/SerialToUSBDemo/src/eu/powet/SerialToUSBDemo/SerialToUSBDemoActivity.java" afterPath="$PROJECT_DIR$/src/test/SerialToUSBDemo/src/eu/powet/SerialToUSBDemo/SerialToUSBDemoActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Serial_USB_Android/ChipType.java" afterPath="$PROJECT_DIR$/src/main/java/Serial_USB_Android/ChipType.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/SerialToUSBDemo/bin/classes.dex" afterPath="$PROJECT_DIR$/src/test/SerialToUSBDemo/bin/classes.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/SerialToUSBDemo/bin/resources.ap_" afterPath="$PROJECT_DIR$/src/test/SerialToUSBDemo/bin/resources.ap_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/SerialToUSBDemo/.classpath" afterPath="$PROJECT_DIR$/src/test/SerialToUSBDemo/.classpath" />
     </list>
     <ignored path="eu.powet.android.SerialUSB.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -98,7 +63,17 @@
     <favorites_list name="eu.powet.android.SerialUSB" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="42" selection-start="300" selection-end="326" vertical-scroll-proportion="0.13910356">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -114,6 +89,8 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/Serial_USB_Android/ChipType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Serial_USB_Android/ISerial.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -126,16 +103,6 @@
   </component>
   <component name="MavenProjectNavigator">
     <treeState>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Eu :: Powet :: Android :: Serial USB" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-      </PATH>
       <PATH>
         <PATH_ELEMENT>
           <option name="myItemId" value="" />
@@ -159,9 +126,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="-1" />
     <option name="y" value="30" />
-    <option name="width" value="1920" />
-    <option name="height" value="1146" />
+    <option name="width" value="1922" />
+    <option name="height" value="1147" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -220,6 +188,52 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SerialToUSBDemo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eu.powet.android.SerialUSB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Serial-to-USB-ANDROID" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SerialToUSBDemo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eu" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="powet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SerialToUSBDemo" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -454,33 +468,34 @@
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+      <changelist id="eb150807-0037-416c-be97-40b854b0f726" name="Default" comment="" />
       <created>1329734210014</created>
       <updated>1329734210014</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="30" width="1920" height="1146" extended-state="0" />
-    <editor active="false" />
+    <frame x="-1" y="30" width="1922" height="1147" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32959402" sideWeight="0.6702544" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3440171" sideWeight="0.67057675" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.6702544" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3297456" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24946581" sideWeight="0.67057675" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32942328" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -535,30 +550,49 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/Serial_USB_Android/UsbSerial.java">
+    <entry file="file://$PROJECT_DIR$/src/test/SerialToUSBDemo/src/eu/powet/SerialToUSBDemo/SerialToUSBDemoActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="13" selection-start="627" selection-end="627" vertical-scroll-proportion="-1.0843374">
-          <folding />
-        </state>
+        <state line="45" column="8" selection-start="1224" selection-end="1279" vertical-scroll-proportion="0.29216868" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Serial_USB_Android/ByteFIFO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="6" selection-start="125" selection-end="125" vertical-scroll-proportion="0.15060242">
-          <folding />
-        </state>
+        <state line="10" column="6" selection-start="125" selection-end="125" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Serial_USB_Android/ChipType.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="28" selection-end="28" vertical-scroll-proportion="0.015060241">
-          <folding />
-        </state>
+        <state line="1" column="0" selection-start="28" selection-end="28" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/SerialToUSBDemo/src/eu/powet/SerialToUSBDemo/SerialToUSBDemoActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Serial_USB_Android/ISerial.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="20" column="40" selection-start="829" selection-end="829" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Serial_USB_Android/SerialError.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="13" selection-start="110" selection-end="110" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Serial_USB_Android/SerialListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="17" selection-start="148" selection-end="148" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Serial_USB_Android/UsbDeviceID.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="13" selection-start="130" selection-end="130" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Serial_USB_Android/UsbSerial.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="13" selection-start="627" selection-end="627" vertical-scroll-proportion="-1.2360122" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="42" selection-start="300" selection-end="326" vertical-scroll-proportion="0.13910356">
           <folding />
         </state>
       </provider>

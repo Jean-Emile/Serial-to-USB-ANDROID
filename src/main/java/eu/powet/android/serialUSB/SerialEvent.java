@@ -1,7 +1,6 @@
-package Serial_USB_Android;
+package eu.powet.android.serialUSB;
 import java.util.EventObject;
 
-import android.app.Activity;
 import android.content.Context;
 
 /**
