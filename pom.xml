@@ -20,15 +20,16 @@
         </dependency>
     </dependencies>
 
+
     <distributionManagement>
-        <repository>
-            <id>maven2.kevoree.release</id>
-            <url>http://maven.kevoree.org/archiva/repository/release/</url>
-        </repository>
-        <snapshotRepository>
-            <id>maven2.kevoree.snapshots</id>
-            <url>http://maven.kevoree.org/archiva/repository/snapshots/</url>
-        </snapshotRepository>
+    	<repository>
+    		<id>repo</id>
+    		<url>https://raw.github.com/Jean-Emile/Serial-to-USB-ANDROID/master/releases</url>
+    	</repository>
+    	<snapshotRepository>
+    		<id>snapshot-repo</id>
+    		<url>https://raw.github.com/Jean-Emile/Serial-to-USB-ANDROID/master/snapshots</url>
+    	</snapshotRepository>
     </distributionManagement>
 
 
