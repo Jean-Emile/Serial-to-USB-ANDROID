@@ -21,7 +21,7 @@ import java.util.Iterator;
 
 public class UsbSerial implements ISerial {
 
-    private final int SIZE_FTDI =4096;
+    private final int SIZE_SERIALUSB =4096;
     private static final String ACTION_USB_PERMISSION = "eu.powet.SerialToUSBDemo";
     private   UsbDeviceID   usbDeviceID;
     private static UsbDevice sDevice = null;
@@ -40,7 +40,7 @@ public class UsbSerial implements ISerial {
 
     public void initUsbSerial(){
         listenerList = new EventListenerList();
-        fifo_data_read= new ByteFIFO(SIZE_FTDI);
+        fifo_data_read= new ByteFIFO(SIZE_SERIALUSB);
     }
 
     public UsbSerial(String _usbDeviceID,int baudrate,Context _sActivityContext)
@@ -65,7 +65,7 @@ public class UsbSerial implements ISerial {
             if(mStopped)
                 enumerate();
         }catch (Exception e) {
-          throw new SerialError("Serial openning : "+e.getCause().toString());
+            throw new SerialError("Serial openning : "+e.getCause().toString());
         }
     }
 
@@ -161,7 +161,6 @@ public class UsbSerial implements ISerial {
         }
     }
 
-
     public void addEventListener (SerialListener listener) {
         listenerList.add(SerialListener.class, listener);
     }
@@ -170,13 +169,10 @@ public class UsbSerial implements ISerial {
         listenerList.remove(SerialListener.class, listener);
     }
 
-
     void fireSerialAndroidEvent(SerialEvent evt) {
-
         Object[] listeners = listenerList.getListenerList();
         for (int i = 0; i < listeners.length; i += 2)
         {
-
             if (listeners[i] == SerialListener.class)
             {
                 ((SerialListener) listeners[i + 1]).incomingDataEvent(evt);
@@ -184,24 +180,31 @@ public class UsbSerial implements ISerial {
         }
     }
 
-    private final BroadcastReceiver mPermissionReceiver = new BroadcastReceiver() {
+    private final BroadcastReceiver mPermissionReceiver = new BroadcastReceiver()
+    {
         @Override
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction().equals(ACTION_USB_PERMISSION)) {
-                if (!intent.getBooleanExtra(
-                        UsbManager.EXTRA_PERMISSION_GRANTED, false)) {
-                    e("Permission not granted :(");
-                } else {
+
+                if (!intent.getBooleanExtra(UsbManager.EXTRA_PERMISSION_GRANTED, false))
+                {
+                    l("Permission not granted :(");
+                }
+                else
+                {
                     l("Permission granted");
                     UsbDevice dev = (UsbDevice) intent
                             .getParcelableExtra(UsbManager.EXTRA_DEVICE);
-                    if (dev != null) {
-                        if (String.format("%04X:%04X", dev.getVendorId(),
-                                dev.getProductId()).equals(usbDeviceID.getVID_PID())) {
+                    if (dev != null)
+                    {
+                        if (String.format("%04X:%04X", dev.getVendorId(),dev.getProductId()).equals(usbDeviceID.getVID_PID()))
+                        {
                             mainloop(dev);//has new thread
                         }
-                    } else {
-                        e("device not present!");
+                    }
+                    else
+                    {
+                        l("device not present!");
                     }
                 }
             }
@@ -221,7 +224,7 @@ public class UsbSerial implements ISerial {
             UsbDevice d = deviter.next();
             l("Found device: "+ String.format("%04X:%04X", d.getVendorId(),d.getProductId()));
 
-            if (String.format("%04X:%04X", d.getVendorId(), d.getProductId()).equals(usbDeviceID.getVID_PID()) || usbDeviceID.getPid().equals("*") ||usbDeviceID.getVid().equals("*")) {
+            if (String.format("%04X:%04X", d.getVendorId(), d.getProductId()).equals(usbDeviceID.getVID_PID()) || usbDeviceID.getPid().equals("*") || usbDeviceID.getVid().equals("*")) {
 
                 l("Device under: " + d.getDeviceName());
                 sActivityContext.registerReceiver(mPermissionReceiver, new IntentFilter(ACTION_USB_PERMISSION));
@@ -266,71 +269,83 @@ public class UsbSerial implements ISerial {
             conn.controlTransfer(0x40, 0x04, 0x0008, 0, null, 0, 0); //data bit 8, parity none, stop bit 1, tx off
 
             UsbInterface usbIf = dev.getInterface(0);
-            for(int i = 0; i < usbIf.getEndpointCount(); i++){
+            for(int i = 0; i < usbIf.getEndpointCount(); i++)
+            {
                 l("EP: "+String.format("0x%02X", usbIf.getEndpoint(i).getAddress()));
-                if(usbIf.getEndpoint(i).getType() == UsbConstants.USB_ENDPOINT_XFER_BULK){
+
+                if(usbIf.getEndpoint(i).getType() == UsbConstants.USB_ENDPOINT_XFER_BULK)
+                {
                     l("Bulk Endpoint");
                     if(usbIf.getEndpoint(i).getDirection() == UsbConstants.USB_DIR_IN)
                         epIN = usbIf.getEndpoint(i);
                     else
                         epOUT = usbIf.getEndpoint(i);
-                }else{
+                }
+                else
+                {
                     l("Not Bulk");
                 }
             }
 
-            if(dev.getInterfaceCount() > 0)
+            if(dev.getInterfaceCount() > 0 &&( epIN != null && epOUT !=null))
             {
                 isconnected =true;
-            }
 
-            for(;;)
-            {
-                byte[] buffer = new byte[SIZE_FTDI];
-                boolean data=false;
-                if(conn.bulkTransfer(epIN, buffer, SIZE_FTDI, TIMEOUT)>=0)
+                for(;;)
                 {
-                    if(fifo_data_read.free() < SIZE_FTDI)
+                    byte[] buffer = new byte[SIZE_SERIALUSB];
+                    boolean data=false;
+                    if(conn.bulkTransfer(epIN, buffer, SIZE_SERIALUSB, TIMEOUT)>=0)
                     {
-                        ByteFIFO tmp = new ByteFIFO(fifo_data_read.getCapacity()+SIZE_FTDI);
-                        try
+                        if(fifo_data_read.free() < SIZE_SERIALUSB)
                         {
-                            tmp.add(fifo_data_read.removeAll());
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        fifo_data_read = tmp;
-                    }
-
-                    for(int i=0;i<SIZE_FTDI;i++)
-                    {
-                        if(buffer[i] != 0 && buffer[i] != 17 && buffer[i] !='`'){
+                            ByteFIFO tmp = new ByteFIFO(fifo_data_read.getCapacity()+ SIZE_SERIALUSB);
                             try
                             {
-                                fifo_data_read.add(buffer[i]);
-                                data =true;
-                            } catch (InterruptedException e)
-                            {
+                                tmp.add(fifo_data_read.removeAll());
+                            } catch (InterruptedException e) {
                                 e.printStackTrace();
+                            }
+                            fifo_data_read = tmp;
+                        }
+
+                        for(int i=0;i< SIZE_SERIALUSB;i++)
+                        {
+                            if(buffer[i] != 0 && buffer[i] != 17 && buffer[i] !='`'){
+                                try
+                                {
+                                    fifo_data_read.add(buffer[i]);
+                                    data =true;
+                                } catch (InterruptedException e)
+                                {
+                                    e.printStackTrace();
+                                }
                             }
                         }
                     }
+
+                    if(data){
+                        Log.d("SERIAL_USB", ">==< fireSerialAndroidEvent >==<"+fifo_data_read.getSize());
+                        fireSerialAndroidEvent(new SerialEvent(sActivityContext, fifo_data_read));
+                    }
+                    try
+                    {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
+                    if(mStop){
+                        mStopped = true;
+                        return;
+                    }
                 }
 
-                if(data){
-                    fireSerialAndroidEvent(new SerialEvent(sActivityContext, fifo_data_read));
-                }
-                try
-                {
-                    Thread.sleep(500);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+            }else {
+                l("Not Bulk");
+                mStopped = true;
+                return;
 
-                if(mStop){
-                    mStopped = true;
-                    return;
-                }
             }
         }
     };
@@ -353,7 +368,38 @@ public class UsbSerial implements ISerial {
     @Override
     public void write(byte[] data) throws SerialError {
         // TODO manage if size is bigger than 4096
-        conn.bulkTransfer(epOUT, data, data.length, TIMEOUT);
+        int offset= 0;
+        int size_toupload=0;
+        byte[] buffer = new byte[SIZE_SERIALUSB];
+        if(!isConnected())
+        {
+            open();
+        }
+        else
+        {
+            try
+            {
+                while(offset < data.length) {
+
+                    if(offset+SIZE_SERIALUSB > data.length)
+                    {
+                        size_toupload = data.length-offset;
+                    }
+                    System.arraycopy(data, offset, buffer, 0, size_toupload);
+                    int size_uploaded =    conn.bulkTransfer(epOUT, buffer, size_toupload, TIMEOUT);
+                    if(size_uploaded<0)
+                    {
+                        throw new SerialError(" bulk Transfer fail");
+                    }
+                    offset += size_uploaded;
+                }
+
+            }catch (Exception e)
+            {
+                throw new SerialError(e.getMessage());
+            }
+        }
+
     }
 
     @Override
