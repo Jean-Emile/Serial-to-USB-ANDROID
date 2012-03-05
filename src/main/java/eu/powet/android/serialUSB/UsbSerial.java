@@ -1,21 +1,16 @@
 package eu.powet.android.serialUSB;
 
 
-import java.util.HashMap;
-import java.util.Iterator;
-
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.hardware.usb.UsbConstants;
-import android.hardware.usb.UsbDevice;
-import android.hardware.usb.UsbDeviceConnection;
-import android.hardware.usb.UsbEndpoint;
-import android.hardware.usb.UsbInterface;
-import android.hardware.usb.UsbManager;
+import android.hardware.usb.*;
 import android.util.Log;
+
+import java.util.HashMap;
+import java.util.Iterator;
 
 
 /**
@@ -226,7 +221,7 @@ public class UsbSerial implements ISerial {
             UsbDevice d = deviter.next();
             l("Found device: "+ String.format("%04X:%04X", d.getVendorId(),d.getProductId()));
 
-            if (String.format("%04X:%04X", d.getVendorId(), d.getProductId()).equals(usbDeviceID.getVID_PID())) {
+            if (String.format("%04X:%04X", d.getVendorId(), d.getProductId()).equals(usbDeviceID.getVID_PID()) || usbDeviceID.getPid().equals("*") ||usbDeviceID.getVid().equals("*")) {
 
                 l("Device under: " + d.getDeviceName());
                 sActivityContext.registerReceiver(mPermissionReceiver, new IntentFilter(ACTION_USB_PERMISSION));
