@@ -21,7 +21,7 @@ import java.util.Iterator;
 
 public class UsbSerial implements ISerial {
 
-    private final int SIZE_SERIALUSB =4096;
+    private final int SIZE_SERIALUSB =64;
     private static final String ACTION_USB_PERMISSION = "eu.powet.SerialToUSBDemo";
     private   UsbDeviceID   usbDeviceID;
     private static UsbDevice sDevice = null;
@@ -34,7 +34,7 @@ public class UsbSerial implements ISerial {
     private int baudrate;
     private UsbEndpoint epIN = null;
     private UsbEndpoint epOUT = null;
-    private  int TIMEOUT = 500;
+    private  int TIMEOUT = 0;
     private boolean isconnected=false;
 
 
@@ -46,8 +46,8 @@ public class UsbSerial implements ISerial {
     public UsbSerial(String _usbDeviceID,int baudrate,Context _sActivityContext)
     {
         initUsbSerial();
-       this.setBaudrate(baudrate);
-       // this.setBaudrate(19200);
+        this.setBaudrate(baudrate);
+        // this.setBaudrate(19200);
         this.usbDeviceID = new UsbDeviceID(_usbDeviceID);
         this.sActivityContext =_sActivityContext;
         l("Openning "+_usbDeviceID+" baudrate "+baudrate);
@@ -273,12 +273,18 @@ public class UsbSerial implements ISerial {
             conn.controlTransfer(0x40, 0x02, 0x0000, 0, null, 0, 0);//flow control none
             conn.controlTransfer(0x40, 0x04, 0x0008, 0, null, 0, 0); //data bit 8, parity none, stop bit 1, tx off
 
+
+        //    conn.controlTransfer(0x21, 34, 0, 0, null, 0, 0);
+          //  conn.controlTransfer(0x21, 32, 0, 0, new byte[] { (byte) 0x80,0x25, 0x00, 0x00, 0x00, 0x00, 0x08 }, 7, 0);
+
+
+
             UsbInterface usbIf = dev.getInterface(0);
             for(int i = 0; i < usbIf.getEndpointCount(); i++)
             {
                 l("EP: "+String.format("0x%02X", usbIf.getEndpoint(i).getAddress())+" "+usbIf.getEndpoint(i).getType());
 
-               if(usbIf.getEndpoint(i).getType() == UsbConstants.USB_ENDPOINT_XFER_BULK)
+                if(usbIf.getEndpoint(i).getType() == UsbConstants.USB_ENDPOINT_XFER_BULK)
                 {
                     l("Bulk Direction  "+usbIf.getEndpoint(i).getDirection());
                     if(usbIf.getEndpoint(i).getDirection() == UsbConstants.USB_DIR_IN)
@@ -302,6 +308,8 @@ public class UsbSerial implements ISerial {
                     boolean data=false;
                     if(conn.bulkTransfer(epIN, buffer, SIZE_SERIALUSB, TIMEOUT)>=0)
                     {
+
+
                         if(fifo_data_read.free() < SIZE_SERIALUSB)
                         {
                             ByteFIFO tmp = new ByteFIFO(fifo_data_read.getCapacity()+ SIZE_SERIALUSB);
@@ -314,7 +322,7 @@ public class UsbSerial implements ISerial {
                             fifo_data_read = tmp;
                         }
 
-                        for(int i=0;i< SIZE_SERIALUSB;i++)
+                        for(int i=1;i< SIZE_SERIALUSB;i++)
                         {
                             if(buffer[i] != 0 && buffer[i] != 17 && buffer[i] !='`'){
                                 try
@@ -331,7 +339,7 @@ public class UsbSerial implements ISerial {
 
                     if(data){
                         Log.d("SERIAL_USB", ">==< fireSerialAndroidEvent >==<"+fifo_data_read.getSize());
-                         fireSerialAndroidEvent(new SerialEvent(sActivityContext, fifo_data_read));
+                        fireSerialAndroidEvent(new SerialEvent(sActivityContext, fifo_data_read));
                     }
                     try
                     {
