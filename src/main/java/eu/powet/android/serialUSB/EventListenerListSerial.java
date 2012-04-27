@@ -12,7 +12,7 @@ import java.util.ArrayList;
 * User: jedartois@gmail.com
 * Date: 11/02/12
 */
-public class EventListenerList implements Serializable {
+public class EventListenerListSerial implements Serializable {
 
 	protected transient Object[] listenerList = new Object[0];
 
@@ -74,7 +74,7 @@ public class EventListenerList implements Serializable {
 	}
 
 	 public String toString() {
-		 String str = "EventListenerList: ";
+		 String str = "EventListenerListSerial: ";
 		 str += getListenerCount() + " listeners:";
 		 for(int i = 0; i < listenerList.length; i += 2) {
 			 str += " type " + ((Class)listenerList[i]).getName() +

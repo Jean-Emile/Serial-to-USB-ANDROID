@@ -8,8 +8,8 @@ package eu.powet.android.serialUSB;
  */
 public class ChipType {
 
-    private String vid;
-    private String pid;
+    private String vid="*";
+    private String pid="*";
 
     public final static String FTDI="0403:6001";
     public final static String FT232RL="0403:6001";
@@ -20,8 +20,19 @@ public class ChipType {
 
     public ChipType(String chip)
     {
-        vid = chip.split(":")[0];
-        pid = chip.split(":")[1];
+        if(!chip.equals("*"))
+        {
+            try
+            {
+                vid = chip.split(":")[0];
+                pid = chip.split(":")[1];
+            } catch (Exception e)
+            {
+                vid ="*";
+                pid="*";
+            }
+        }
+
     }
 
     public ChipType(String _vid,  String _pid){

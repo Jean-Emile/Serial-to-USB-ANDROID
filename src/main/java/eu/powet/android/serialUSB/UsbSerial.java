@@ -30,7 +30,7 @@ public class UsbSerial implements ISerial {
     private boolean mStopped = true;
     private UsbDeviceConnection conn;
     private ByteFIFO fifo_data_read;
-    private EventListenerList listenerList;
+    private EventListenerListSerial listenerList;
     private int baudrate;
     private UsbEndpoint epIN = null;
     private UsbEndpoint epOUT = null;
@@ -39,16 +39,18 @@ public class UsbSerial implements ISerial {
 
 
     public void initUsbSerial(){
-        listenerList = new EventListenerList();
+        listenerList = new EventListenerListSerial();
         fifo_data_read= new ByteFIFO(SIZE_SERIALUSB);
     }
 
     public UsbSerial(String _usbDeviceID,int baudrate,Context _sActivityContext)
     {
         initUsbSerial();
-        this.setBaudrate(baudrate);
+       this.setBaudrate(baudrate);
+       // this.setBaudrate(19200);
         this.usbDeviceID = new UsbDeviceID(_usbDeviceID);
         this.sActivityContext =_sActivityContext;
+        l("Openning "+_usbDeviceID+" baudrate "+baudrate);
     }
 
     public UsbSerial(Context _sActivityContext)
@@ -90,10 +92,12 @@ public class UsbSerial implements ISerial {
     public void close() {
         try
         {
+            l("close USB Serial ");
+            /*
             mStop = true;
-
             if(sActivityContext!=null)
                 sActivityContext.unregisterReceiver(mPermissionReceiver);
+                */
         }catch (Exception e) {
             e.printStackTrace();
         }
@@ -240,7 +244,8 @@ public class UsbSerial implements ISerial {
     }
 
     private void mainloop(UsbDevice d) {
-        sDevice = d;// not really nice...
+        sDevice = d;
+        l("starting...");
         new Thread(mLoop).start();
     }
 
@@ -264,18 +269,18 @@ public class UsbSerial implements ISerial {
             conn.controlTransfer(0x40, 0, 0, 0, null, 0, 0);//reset
             conn.controlTransfer(0x40, 0, 1, 0, null, 0, 0);//clear Rx
             conn.controlTransfer(0x40, 0, 2, 0, null, 0, 0);//clear Tx
-            conn.controlTransfer(0x40, 0x03, baudrate, 0, null, 0, 0);//baudrate 11200
+            conn.controlTransfer(0x40, 0x03, baudrate, 0, null, 0, 0);//baudrate
             conn.controlTransfer(0x40, 0x02, 0x0000, 0, null, 0, 0);//flow control none
             conn.controlTransfer(0x40, 0x04, 0x0008, 0, null, 0, 0); //data bit 8, parity none, stop bit 1, tx off
 
             UsbInterface usbIf = dev.getInterface(0);
             for(int i = 0; i < usbIf.getEndpointCount(); i++)
             {
-                l("EP: "+String.format("0x%02X", usbIf.getEndpoint(i).getAddress()));
+                l("EP: "+String.format("0x%02X", usbIf.getEndpoint(i).getAddress())+" "+usbIf.getEndpoint(i).getType());
 
-                if(usbIf.getEndpoint(i).getType() == UsbConstants.USB_ENDPOINT_XFER_BULK)
+               if(usbIf.getEndpoint(i).getType() == UsbConstants.USB_ENDPOINT_XFER_BULK)
                 {
-                    l("Bulk Endpoint");
+                    l("Bulk Direction  "+usbIf.getEndpoint(i).getDirection());
                     if(usbIf.getEndpoint(i).getDirection() == UsbConstants.USB_DIR_IN)
                         epIN = usbIf.getEndpoint(i);
                     else
@@ -326,7 +331,7 @@ public class UsbSerial implements ISerial {
 
                     if(data){
                         Log.d("SERIAL_USB", ">==< fireSerialAndroidEvent >==<"+fifo_data_read.getSize());
-                        fireSerialAndroidEvent(new SerialEvent(sActivityContext, fifo_data_read));
+                         fireSerialAndroidEvent(new SerialEvent(sActivityContext, fifo_data_read));
                     }
                     try
                     {
@@ -335,7 +340,8 @@ public class UsbSerial implements ISerial {
                         e.printStackTrace();
                     }
 
-                    if(mStop){
+                    if(mStop)
+                    {
                         mStopped = true;
                         return;
                     }
@@ -375,31 +381,27 @@ public class UsbSerial implements ISerial {
         {
             open();
         }
-        else
+        try
         {
-            try
-            {
-                while(offset < data.length) {
+            while(offset < data.length) {
 
-                    if(offset+SIZE_SERIALUSB > data.length)
-                    {
-                        size_toupload = data.length-offset;
-                    }
-                    System.arraycopy(data, offset, buffer, 0, size_toupload);
-                    int size_uploaded =    conn.bulkTransfer(epOUT, buffer, size_toupload, TIMEOUT);
-                    if(size_uploaded<0)
-                    {
-                        throw new SerialError(" bulk Transfer fail");
-                    }
-                    offset += size_uploaded;
+                if(offset+SIZE_SERIALUSB > data.length)
+                {
+                    size_toupload = data.length-offset;
                 }
-
-            }catch (Exception e)
-            {
-                throw new SerialError(e.getMessage());
+                System.arraycopy(data, offset, buffer, 0, size_toupload);
+                int size_uploaded =    conn.bulkTransfer(epOUT, buffer, size_toupload, TIMEOUT);
+                if(size_uploaded<0)
+                {
+                    throw new SerialError(" bulk Transfer fail");
+                }
+                offset += size_uploaded;
             }
-        }
 
+        }catch (Exception e)
+        {
+            throw new SerialError(e.getMessage());
+        }
     }
 
     @Override
