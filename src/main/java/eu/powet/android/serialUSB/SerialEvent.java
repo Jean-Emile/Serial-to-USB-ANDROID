@@ -20,5 +20,11 @@ public class SerialEvent extends EventObject   {
 	public byte[] read() {
 		return dataincomming.removeAll();
 	}
+
+
+    public  byte readByte() throws InterruptedException
+    {
+        return dataincomming.remove();
+    }
 	
 }
